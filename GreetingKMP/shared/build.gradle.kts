@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    kotlin("plugin.serialization") version "1.9.22"
 }
 
 kotlin {
@@ -27,6 +28,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
         }
     }
 }

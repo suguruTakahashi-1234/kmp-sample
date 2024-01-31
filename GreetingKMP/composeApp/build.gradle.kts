@@ -7,6 +7,25 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
 }
 
+// Ktor
+kotlin {
+    val ktorVersion = "2.3.7"
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+        }
+        androidMain.dependencies {
+            implementation("io.ktor:ktor-client-android:$ktorVersion")
+        }
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+        }
+    }
+}
+
 kotlin {
     androidTarget {
         compilations.all {
@@ -15,9 +34,9 @@ kotlin {
             }
         }
     }
-    
+
     sourceSets {
-        
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
