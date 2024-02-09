@@ -6,6 +6,10 @@ plugins {
 
     // SKIE
     id("co.touchlab.skie") version "0.6.1"
+
+    // KMP-NativeCoroutines
+    id("com.google.devtools.ksp")
+    id("com.rickclephas.kmp.nativecoroutines")
 }
 
 kotlin {
@@ -50,6 +54,11 @@ kotlin {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
             implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+        }
+
+        // KMP-NativeCoroutines
+        all {
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
         }
     }
 }
